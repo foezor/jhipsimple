@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "fashionidas",
+            "otherEntityName": "fashionidas",
+            "otherEntityField": "alias"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "theme",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maximumAmount",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20170502164919",
+    "entityTableName": "mission",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

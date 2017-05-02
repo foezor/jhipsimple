@@ -1,0 +1,69 @@
+
+
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+        <h4 class="modal-title" id="myFeedbackLabel" jhiTranslate="jhipsimpleApp.feedback.home.createOrEditLabel">Create or edit a Feedback</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!feedback.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="feedback.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsimpleApp.feedback.comment" for="field_comment">Comment</label>
+            <input type="text" class="form-control" name="comment" id="field_comment"
+                [(ngModel)]="feedback.comment"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsimpleApp.feedback.rate" for="field_rate">Rate</label>
+            <input type="number" class="form-control" name="rate" id="field_rate"
+                [(ngModel)]="feedback.rate"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsimpleApp.feedback.approved" for="field_approved">Approved</label>
+            <input type="checkbox" class="form-control" name="approved" id="field_approved"
+                [(ngModel)]="feedback.approved"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsimpleApp.feedback.creationDate" for="field_creationDate">Creation Date</label>
+            <div class="input-group">
+                <input id="field_creationDate" type="text" class="form-control" name="creationDate" ngbDatepicker  #creationDateDp="ngbDatepicker" [(ngModel)]="feedback.creationDate"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="creationDateDp.open()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="jhipsimpleApp.feedback.fashionidas" for="field_fashionidas">Fashionidas</label>
+            <select class="form-control" id="field_fashionidas" name="fashionidas" [(ngModel)]="feedback.fashionidas" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="fashionidasOption.id === feedback.fashionidas?.id ? feedback.fashionidas : fashionidasOption" *ngFor="let fashionidasOption of fashionidas; trackBy: trackFashionidasById">{{fashionidasOption.alias}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="jhipsimpleApp.feedback.mission" for="field_mission">Mission</label>
+            <select class="form-control" id="field_mission" name="mission" [(ngModel)]="feedback.mission" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="missionOption.id === feedback.mission?.id ? feedback.mission : missionOption" *ngFor="let missionOption of missions; trackBy: trackMissionById">{{missionOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,35 @@
+
+<div *ngIf="mission">
+    <h2><span jhiTranslate="jhipsimpleApp.mission.detail.title">Mission</span> {{mission.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span jhiTranslate="jhipsimpleApp.mission.theme">Theme</span></dt>
+        <dd>
+            <span>{{mission.theme}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsimpleApp.mission.maximumAmount">Maximum Amount</span></dt>
+        <dd>
+            <span>{{mission.maximumAmount}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsimpleApp.mission.fashionidas">Fashionidas</span></dt>
+        <dd>
+            <div *ngIf="mission.fashionidas">
+                <a [routerLink]="['/fashionidas', mission.fashionidas?.id]">{{mission.fashionidas?.alias}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'mission/'+ mission.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

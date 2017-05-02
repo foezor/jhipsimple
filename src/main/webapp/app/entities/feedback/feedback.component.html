@@ -1,0 +1,75 @@
+<div>
+    <h2><span jhiTranslate="jhipsimpleApp.feedback.home.title">Feedbacks</span>
+        <button class="btn btn-primary float-xs-right create-feedback" [routerLink]="['/', { outlets: { popup: ['feedback-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsimpleApp.feedback.home.createLabel">
+            Create new Feedback
+            </span>
+        </button></h2>
+    <jhi-alert></jhi-alert>
+
+    <div class="container-fluid">
+        <div class="row">
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="feedbacks">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="jhipsimpleApp.feedback.comment">Comment</span></th>
+            <th><span jhiTranslate="jhipsimpleApp.feedback.rate">Rate</span></th>
+            <th><span jhiTranslate="jhipsimpleApp.feedback.approved">Approved</span></th>
+            <th><span jhiTranslate="jhipsimpleApp.feedback.creationDate">Creation Date</span></th>
+            <th><span jhiTranslate="jhipsimpleApp.feedback.fashionidas">Fashionidas</span></th>
+            <th><span jhiTranslate="jhipsimpleApp.feedback.mission">Mission</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let feedback of feedbacks ;trackBy: trackId">
+                <td><a [routerLink]="['../feedback', feedback.id ]">{{feedback.id}}</a></td>
+                <td>{{feedback.comment}}</td>
+                <td>{{feedback.rate}}</td>
+                <td>{{feedback.approved}}</td>
+                <td>{{feedback.creationDate | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="feedback.fashionidas">
+                        <a [routerLink]="['../fashionidas', feedback.fashionidas?.id ]" >{{feedback.fashionidas?.alias}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="feedback.mission">
+                        <a [routerLink]="['../mission', feedback.mission?.id ]" >{{feedback.mission?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-xs-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../feedback', feedback.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'feedback/'+ feedback.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'feedback/'+ feedback.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

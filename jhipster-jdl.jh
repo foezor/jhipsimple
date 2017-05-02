@@ -1,0 +1,32 @@
+
+entity Mission {
+    theme String, 
+	maximumAmount Double
+}
+entity Fashionidas{
+alias String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Feedback {
+	comment String,
+    rate Integer,
+	approved Boolean,
+    creationDate  LocalDate
+}
+
+
+
+relationship ManyToOne {
+	Mission{fashionidas(alias)} to Fashionidas,
+    Feedback{fashionidas(alias)} to Fashionidas,
+    Feedback {mission(id)}to Mission
+    
+}
+
+/**
+//relationship ManyToMany {
+//	Entry{tag(name)} to Tag{entry}
+//}
+**/

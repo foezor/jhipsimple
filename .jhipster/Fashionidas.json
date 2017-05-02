@@ -1,0 +1,15 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "alias",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170502164919",
+    "entityTableName": "fashionidas",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

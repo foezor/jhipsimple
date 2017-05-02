@@ -1,0 +1,21 @@
+{
+    "jhipsimpleApp": {
+        "fashionidas" : {
+            "home": {
+                "title": "Fashionidas",
+                "createLabel": "Crear nuevo Fashionidas",
+                "createOrEditLabel": "Crear o editar Fashionidas"
+            },
+            "created": "Un nuevo Fashionidas ha sido creado con el identificador {{ param }}",
+            "updated": "Un Fashionidas ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Fashionidas ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Fashionidas {{ id }}?"
+            },
+            "detail": {
+                "title": "Fashionidas"
+            },
+            "alias": "Alias"
+        }
+    }
+}

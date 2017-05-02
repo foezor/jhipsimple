@@ -1,0 +1,23 @@
+{
+    "jhipsimpleApp": {
+        "mission" : {
+            "home": {
+                "title": "Missions",
+                "createLabel": "Créer un nouveau Mission",
+                "createOrEditLabel": "Créer ou éditer un Mission"
+            },
+            "created": "Un nouveau Mission a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Mission avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Mission avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Mission {{ id }} ?"
+            },
+            "detail": {
+                "title": "Mission"
+            },
+            "theme": "Theme",
+            "maximumAmount": "Maximum Amount",
+            "fashionidas": "Fashionidas"
+        }
+    }
+}

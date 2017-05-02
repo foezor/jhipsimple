@@ -1,0 +1,49 @@
+
+<div *ngIf="feedback">
+    <h2><span jhiTranslate="jhipsimpleApp.feedback.detail.title">Feedback</span> {{feedback.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row">
+        <dt><span jhiTranslate="jhipsimpleApp.feedback.comment">Comment</span></dt>
+        <dd>
+            <span>{{feedback.comment}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsimpleApp.feedback.rate">Rate</span></dt>
+        <dd>
+            <span>{{feedback.rate}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsimpleApp.feedback.approved">Approved</span></dt>
+        <dd>
+            <span>{{feedback.approved}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsimpleApp.feedback.creationDate">Creation Date</span></dt>
+        <dd>
+            <span>{{feedback.creationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsimpleApp.feedback.fashionidas">Fashionidas</span></dt>
+        <dd>
+            <div *ngIf="feedback.fashionidas">
+                <a [routerLink]="['/fashionidas', feedback.fashionidas?.id]">{{feedback.fashionidas?.alias}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsimpleApp.feedback.mission">Mission</span></dt>
+        <dd>
+            <div *ngIf="feedback.mission">
+                <a [routerLink]="['/mission', feedback.mission?.id]">{{feedback.mission?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'feedback/'+ feedback.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

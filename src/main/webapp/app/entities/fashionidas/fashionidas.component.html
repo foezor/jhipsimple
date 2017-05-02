@@ -1,0 +1,57 @@
+<div>
+    <h2><span jhiTranslate="jhipsimpleApp.fashionidas.home.title">Fashionidas</span>
+        <button class="btn btn-primary float-xs-right create-fashionidas" [routerLink]="['/', { outlets: { popup: ['fashionidas-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsimpleApp.fashionidas.home.createLabel">
+            Create new Fashionidas
+            </span>
+        </button></h2>
+    <jhi-alert></jhi-alert>
+
+    <div class="container-fluid">
+        <div class="row">
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="fashionidas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="jhipsimpleApp.fashionidas.alias">Alias</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fashionidas of fashionidas ;trackBy: trackId">
+                <td><a [routerLink]="['../fashionidas', fashionidas.id ]">{{fashionidas.id}}</a></td>
+                <td>{{fashionidas.alias}}</td>
+                <td class="text-xs-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../fashionidas', fashionidas.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fashionidas/'+ fashionidas.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fashionidas/'+ fashionidas.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
