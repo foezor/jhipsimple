@@ -4,6 +4,9 @@
 /target/www/**
 /src/test/javascript/coverage/
 /src/test/javascript/PhantomJS*/
+/startbootstrap-freelancer-gh-pages
+/startbootstrap-freelancer-gh-pages.zip
+
 
 ######################
 # Node

@@ -49,9 +49,9 @@
         "messages": {
             "info": {
                 "authenticated": {
-                    "prefix": "Si vous voulez vous ",
+                    "prefix": "Pour une expérience complète veuillez vous ",
                     "link": "connecter",
-                    "suffix": ", vous pouvez utiliser les comptes par défaut : <br/> - Administrateur (nom d'utilisateur=\"admin\" et mot de passe =\"admin\") <br/> - Utilisateur (nom d'utilisateur=\"user\" et mot de passe =\"user\")."
+                    "suffix": ", et participez à des missions originales"
                 },
                 "register": {
                     "noaccount": "Vous n'avez pas encore de compte ?",
@@ -130,5 +130,5 @@
         "emailexists": "Email déja utilisé !",
         "idexists": "Une nouvelle entité {{entityName}} ne peut pas avoir d'ID !"
     },
-    "footer": "Ceci est votre pied de page"
+    "footer": "foecorp copyright"
 }
