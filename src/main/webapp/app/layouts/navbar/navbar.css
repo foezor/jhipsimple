@@ -20,9 +20,16 @@ Navbar
     width: 40px;
     border-radius: 50%;
 }
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+    background: transparent !important;
+}
+
+.dropdown-menu > li > a{
+    color: #1a242f !important;
+}
 
 .jh-navbar .dropdown-item.active, .jh-navbar .dropdown-item.active:focus, .jh-navbar .dropdown-item.active:hover {
-   important background-color: #353d47 !important;
+    background-color: #353d47 !important;
 }
 
 .jh-navbar .dropdown-toggle::after {
